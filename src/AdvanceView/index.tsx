@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, Image, Button, SafeAreaView } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { StyleSheet, View, Text, Image, Button, TouchableOpacity, SafeAreaView } from 'react-native'; // Use TouchableOpacity for custom styling
+import Constants from 'expo-constants';
 
-export default function App() {
+export default function Advance({ navigation }) {
   return (
     <View
       style={{
@@ -10,7 +10,6 @@ export default function App() {
         ...{ backgroundColor: '#ff9191' },
       }}
     >
-      <StatusBar style='auto' />
       <Text style={styles.header}>Advance</Text>
       <Text style={styles.subHeader}>A Simple Method to Balance Focus with Deliberate Breaks</Text>
       <Image style={styles.image} source={require('../../assets/pomodoro.png')} />
@@ -18,6 +17,9 @@ export default function App() {
         <Button title='Simple' color='#94e1b4' />
         <Button title='Advance' color='#0000ff' />
       </View>
+      <TouchableOpacity style={[styles.back, { top: Constants.statusBarHeight + 10, right: 20 }]} onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.homeButton}>Return home</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -46,5 +48,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     gap: 50,
+  },
+  back: {
+    position: 'absolute',
+  },
+  homeButton: {
+    color: '#94e1b4',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });

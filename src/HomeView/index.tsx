@@ -1,11 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, Image, Button } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { createStackNavigator } from '@react-navigation/stack';
 
 export default function App({ navigation }) {
   return (
-    <SafeAreaProvider
+    <View
       style={{
         ...styles.container,
         ...{ backgroundColor: '#ff9191' },
@@ -19,7 +17,7 @@ export default function App({ navigation }) {
         <Button title='Simple' color='#94e1b4' onPress={() => navigation.navigate('Simple')} />
         <Button title='Advance' color='#0000ff' onPress={() => navigation.navigate('Advance')} />
       </View>
-    </SafeAreaProvider>
+    </View>
   );
 }
 
